@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sfmc-new-flux-service
+spec:
+  rules:
+    - host: sfmc-new-flux-service-dev.sfmc-dev.tx.group
+      http:
+        paths:
+          - backend:
+              service:
+                name: sfmc-new-flux-service-dev
+                port:
+                  number: 80
+            path: /
+            pathType: ImplementationSpecific
+
+  tls:
+    - hosts:
+        - sfmc-new-flux-service-dev.sfmc-dev.tx.group

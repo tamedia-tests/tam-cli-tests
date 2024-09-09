@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: igr-sfmc-new-flux-service
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: sfmc-new-flux-service
+  filterTags:
+    pattern: "^igr-[a-f0-9]+-(?P<ts>[0-9]+)"
+    extract: "$ts"
+  policy:
+    numerical:
+      order: asc
