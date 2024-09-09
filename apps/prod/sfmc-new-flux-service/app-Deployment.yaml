@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sfmc-new-flux-service
+spec:
+  template:
+    spec:
+      containers:
+        - name: sfmc-new-flux-service
+          image: 860234270284.dkr.ecr.eu-west-1.amazonaws.com/sfmc-new-flux-service:1.0.0 # {"$imagepolicy": "flux-system:prod-sfmc-new-flux-service"}
+          envFrom:
+            - secretRef:
+                name: sfmc-new-flux-service-env-dev
+      imagePullSecrets:
+        - name: regcred-dev
