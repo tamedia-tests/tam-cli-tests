@@ -1,0 +1,6 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sfmc-new-flux-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
