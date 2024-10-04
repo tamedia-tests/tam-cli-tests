@@ -1,0 +1,11 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: prod-sfmc-new-flux-service
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: sfmc-new-flux-service
+  policy:
+    semver:
+      range: <=2.0.0
